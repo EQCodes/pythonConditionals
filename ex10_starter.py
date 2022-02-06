@@ -19,12 +19,12 @@ for file in fileNames:
 
 # TODO: Add a test to only display files that are not zero length
 for file in fileNames:
-    if os.path.getsize(file) == 0:
+    if os.path.getsize(file) != 0:
         print(file)
 
 # TODO: Remove the leading directory name(s) from each filename before you print it - 
 # using os.path.basename()
 for file in fileNames:
-    if os.path.getsize(file) == 0:
+    if os.path.getsize(file) != 0:
         print(os.path.basename(file))
 
