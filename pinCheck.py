@@ -1,7 +1,6 @@
-# Pin checker with getpass - initially wasn't working
-# Had to 'Edit Configurations' then 'Emulate terminal in output console'
+# Pin checker with getpass - had to 'Edit Configurations' then 'Emulate terminal in output console' to work
 # NB: correct_pin only works as a string unless I put int() before getpass.getpass, but len() wouldn't work unless str
-# Sun. updates: correct_pin variable, simplified IF statement, removed continue, limited pin to 4, removed 'prompt'
+# Sunday updates: correct_pin variable, simplified IF statement, removed continue, limited pin to 4, removed 'prompt'
 
 import getpass
 attempts = ['2', '1', '0']
@@ -10,7 +9,7 @@ correct_pin = '5678'
 for attempt in attempts:
     pin = getpass.getpass('Enter your PIN: ')
     if len(pin) > 4:
-        print("Your PIN was too long - please enter 4 characters.")
+        print("Your PIN was too long - please enter 4 numbers.")
         continue
     if pin == correct_pin:
         print('Thank you, here is 1 million dollars.')
