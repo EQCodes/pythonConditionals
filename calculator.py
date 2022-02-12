@@ -15,7 +15,8 @@ while begin:
     elif operator == "*":
         print("The result is " + str(round(num1*num2, 2)))
     elif operator == "/":
-        #if 0 then ask user for different number, can't be 0
+        if num2 == 0:
+            num2 = float(input("You cannot divide by 0, please enter another number: "))
         print("The result is " + str(round(num1/num2, 2)))
     else:
         print("Error. Please input a +, -, / or * sign.")
