@@ -1,6 +1,8 @@
 import math
-print("Hello! I'm Florence the Funky Calculator.")
-# add that if they input Q at any time they can quit
+from functools import reduce
+print("*~* Hello! I'm Florence the Funky Calculator *~*")
+print("*~* Using a little bit of magic, I'll take a mathematical operator and apply it cumulatively \n to a list of numbers to give you one final, shiny result *~*")
+# come back to this to try the while nums != "Q" thing, couldn't get it to work
 begin = True
 
 while begin:
@@ -9,25 +11,33 @@ while begin:
     numsList = nums.split(' ')
     numsList = [int(x) for x in numsList]
     if operator == "*":
-        print("Sweet, the total of your numbers multiplied together is", math.prod(numsList))
+        print("Sweet, lets multiply all of those together! Here's your calcuation:", end=" ")
+        print(*numsList, sep="*", end=" ")
+        print("=", round(math.prod(numsList), 2))
     elif operator == "+":
-        print("Awesome, the total of your numbers added together is", sum(numsList))
+        print("Awesome, you chose to get the sum of those numbers! Check it out:", end=" ")
+        print(*numsList, sep="+", end=" ")
+        print("=", round(sum(numsList), 2))
     elif operator == "/":
-        print("I haven't figured out how to divide yet, sorry pal.")
-        #t ried using a for loop and accessing the next index of the list but got stuck
-        # dividedList = []
-        # dividedList.append(numsList[0])
-        # for number, elem in enumerate(numsList):
-        #     if (number+1 < len(numsList)):
-        #         num1 = elem
-        #         num2 = numsList[number+1]
-        #         dividedList.append(num1/num2)
-        # print(dividedList)
+        if 0 in numsList:
+            print("You cannot divide by 0, give it another go - no 0 this time!")
+            continue
+        def divideAll(num1, num2):
+            result = num1 / num2
+            return result
+        print("Nice, we divided all of those together and this is what happened:", end=" ")
+        print(*numsList, sep="/", end=" ")
+        print("=", round(reduce(divideAll, numsList), 2))
     elif operator == "-":
-        print("I haven't figured out how to takeaway yet, sorry pal.")
+        def subtractAll(a, b):
+            result = a - b
+            return result
+        print("Great, subtracting all of your numbers together looks like this:", end=" ")
+        print(*numsList, sep="-", end=" ")
+        print("=", round(reduce(subtractAll, numsList), 2))
     else:
         print("Please only use one of these operators: *, +, -, /")
 
     goAgain = input("Wanna try again? Type 'Q' to stop or press Enter to have another go: ")
-    if goAgain == 'Q':
-        begin = False
+    if goAgain == "Q":
+        break

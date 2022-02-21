@@ -1,6 +1,3 @@
-# Edit - first had 'begin' as a user input, edited to just set as true
-# Q: is there a way to ask for a user to input just a sum e.g. 5+5, 6*7
-
 print("Hello! I'm Cal the Calculator.")
 begin = True
 
