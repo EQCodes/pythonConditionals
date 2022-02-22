@@ -2,10 +2,13 @@ import math
 from functools import reduce
 print("*~* Hello! I'm Florence the Funky Calculator *~*")
 print("*~* Using a little bit of magic, I'll take a mathematical operator and apply it cumulatively \n to a list of numbers to give you one final, shiny result *~*")
-# come back to this to try the while nums != "Q" thing, couldn't get it to work
 begin = True
+goAgain = ''
+#userTracking = open('userFile.txt', mode="a")
+#counter = 0
 
-while begin:
+while goAgain != 'Q':
+    #counter += 1
     nums = input("Enter as many numbers as you like separated by a space: ")
     operator = input("Enter an operator (+, -, * or /): ")
     numsList = nums.split(' ')
@@ -39,5 +42,3 @@ while begin:
         print("Please only use one of these operators: *, +, -, /")
 
     goAgain = input("Wanna try again? Type 'Q' to stop or press Enter to have another go: ")
-    if goAgain == "Q":
-        break
